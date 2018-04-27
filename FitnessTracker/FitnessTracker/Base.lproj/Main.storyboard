@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KUI-Kx-UN2">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Workouts-->
+        <scene sceneID="bPD-U1-Yuh">
+            <objects>
+                <tableViewController id="N2H-Sz-ks5" customClass="WorkoutTableViewController" customModule="FitnessTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="60Q-wU-6dA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutCell" textLabel="LRu-Sf-BRX" detailTextLabel="YIW-lE-wQV" style="IBUITableViewCellStyleSubtitle" id="C8M-1Y-2RJ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C8M-1Y-2RJ" id="gPh-Vn-17r">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LRu-Sf-BRX">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YIW-lE-wQV">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="N2H-Sz-ks5" id="C3c-kH-EVL"/>
+                            <outlet property="delegate" destination="N2H-Sz-ks5" id="YwY-9r-pcT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Workouts" id="kob-ST-sjS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jdG-HC-awv">
+                            <connections>
+                                <segue destination="2y1-s9-n5T" kind="show" id="HXb-ku-M10"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QS0-y3-yST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="125"/>
+        </scene>
+        <!--Workout View Controller-->
+        <scene sceneID="yG2-9W-OEQ">
+            <objects>
+                <viewController id="2y1-s9-n5T" customClass="WorkoutViewController" customModule="FitnessTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UoG-8h-1PV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLl-w9-IhB">
+                                <rect key="frame" x="45" y="150" width="270" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Of Workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgR-un-d6I">
+                                <rect key="frame" x="45" y="114" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration (min)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9a-bM-lWc">
+                                <rect key="frame" x="45" y="210" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ftc-xH-EX4">
+                                <rect key="frame" x="45" y="246" width="80" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-sA-gqe">
+                                <rect key="frame" x="45" y="306" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="saveWorkout:" destination="2y1-s9-n5T" eventType="touchUpInside" id="yx4-WN-Tos"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k9a-bM-lWc" firstAttribute="top" secondItem="VLl-w9-IhB" secondAttribute="bottom" constant="30" id="9Rx-De-LBB"/>
+                            <constraint firstItem="VLl-w9-IhB" firstAttribute="top" secondItem="mgR-un-d6I" secondAttribute="bottom" constant="15" id="Skw-p9-4GA"/>
+                            <constraint firstItem="wq7-Pc-emg" firstAttribute="trailing" secondItem="ftc-xH-EX4" secondAttribute="trailing" constant="250" id="X4h-KU-nTT"/>
+                            <constraint firstItem="wq7-Pc-emg" firstAttribute="trailing" secondItem="VLl-w9-IhB" secondAttribute="trailing" constant="60" id="XeF-1O-JPl"/>
+                            <constraint firstItem="ftc-xH-EX4" firstAttribute="leading" secondItem="wq7-Pc-emg" secondAttribute="leading" constant="45" id="bSQ-tJ-lGK"/>
+                            <constraint firstItem="mgR-un-d6I" firstAttribute="top" secondItem="wq7-Pc-emg" secondAttribute="top" constant="50" id="cXO-AO-3FF"/>
+                            <constraint firstItem="ftc-xH-EX4" firstAttribute="top" secondItem="k9a-bM-lWc" secondAttribute="bottom" constant="15" id="l83-hI-h7J"/>
+                            <constraint firstItem="mgR-un-d6I" firstAttribute="leading" secondItem="wq7-Pc-emg" secondAttribute="leading" constant="45" id="tnf-IM-iN2"/>
+                            <constraint firstItem="VLl-w9-IhB" firstAttribute="leading" secondItem="wq7-Pc-emg" secondAttribute="leading" constant="45" id="x3l-KG-sg8"/>
+                            <constraint firstItem="k9a-bM-lWc" firstAttribute="leading" secondItem="wq7-Pc-emg" secondAttribute="leading" constant="45" id="yYY-5a-wpx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wq7-Pc-emg"/>
+                    </view>
+                    <connections>
+                        <outlet property="workoutCategory" destination="VLl-w9-IhB" id="8ar-Aw-BiD"/>
+                        <outlet property="workoutDuration" destination="ftc-xH-EX4" id="6ic-9W-O2n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W2g-h8-g4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1520.8" y="126.38680659670166"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QWB-sg-Z90">
+            <objects>
+                <navigationController id="KUI-Kx-UN2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IhR-Wp-dSe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="N2H-Sz-ks5" kind="relationship" relationship="rootViewController" id="ne4-ZB-PMz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B06-h1-vk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-199" y="126"/>
+        </scene>
+    </scenes>
+</document>
