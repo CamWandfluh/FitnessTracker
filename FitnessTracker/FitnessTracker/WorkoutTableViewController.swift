@@ -44,12 +44,10 @@ class WorkoutTableViewController: UITableViewController {
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return workouts.count
     }
     
@@ -63,7 +61,44 @@ class WorkoutTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? WorkoutViewController,
+            let selectedRow = self.tableView.indexPathForSelectedRow?.row else {
+                return
+        }
+        
+        destination.currentWorkout = workouts[selectedRow]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "workout", sender: self)
+    }
 
+    func deleteWorkout(at indexPath: IndexPath)  {
+        let workout = workouts[indexPath.row]
+        
+        if let managedContext = workout.managedObjectContext {
+            managedContext.delete(workout)
+            
+            do {
+                try managedContext.save()
+                self.workouts.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } catch {
+                print("Couldn't delete man")
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteWorkout(at: indexPath)
+        }
+    }
 }
 
 

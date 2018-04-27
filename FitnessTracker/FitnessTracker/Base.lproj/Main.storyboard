@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutCell" textLabel="LRu-Sf-BRX" detailTextLabel="YIW-lE-wQV" style="IBUITableViewCellStyleSubtitle" id="C8M-1Y-2RJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="workoutCell" textLabel="LRu-Sf-BRX" detailTextLabel="YIW-lE-wQV" style="IBUITableViewCellStyleSubtitle" id="C8M-1Y-2RJ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C8M-1Y-2RJ" id="gPh-Vn-17r">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LRu-Sf-BRX">
@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" title="Workouts" id="kob-ST-sjS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jdG-HC-awv">
                             <connections>
-                                <segue destination="2y1-s9-n5T" kind="show" id="HXb-ku-M10"/>
+                                <segue destination="2y1-s9-n5T" kind="show" identifier="workout" id="HXb-ku-M10"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -93,10 +93,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-sA-gqe">
-                                <rect key="frame" x="45" y="306" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7nF-sA-gqe">
+                                <rect key="frame" x="45" y="321" width="95" height="30"/>
+                                <state key="normal" title="Save Workout"/>
                                 <connections>
                                     <action selector="saveWorkout:" destination="2y1-s9-n5T" eventType="touchUpInside" id="yx4-WN-Tos"/>
                                 </connections>
@@ -104,8 +103,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="7nF-sA-gqe" firstAttribute="top" secondItem="ftc-xH-EX4" secondAttribute="bottom" constant="45" id="3JQ-28-G6f"/>
                             <constraint firstItem="k9a-bM-lWc" firstAttribute="top" secondItem="VLl-w9-IhB" secondAttribute="bottom" constant="30" id="9Rx-De-LBB"/>
                             <constraint firstItem="VLl-w9-IhB" firstAttribute="top" secondItem="mgR-un-d6I" secondAttribute="bottom" constant="15" id="Skw-p9-4GA"/>
+                            <constraint firstItem="7nF-sA-gqe" firstAttribute="leading" secondItem="wq7-Pc-emg" secondAttribute="leading" constant="45" id="WAA-Ux-wq4"/>
                             <constraint firstItem="wq7-Pc-emg" firstAttribute="trailing" secondItem="ftc-xH-EX4" secondAttribute="trailing" constant="250" id="X4h-KU-nTT"/>
                             <constraint firstItem="wq7-Pc-emg" firstAttribute="trailing" secondItem="VLl-w9-IhB" secondAttribute="trailing" constant="60" id="XeF-1O-JPl"/>
                             <constraint firstItem="ftc-xH-EX4" firstAttribute="leading" secondItem="wq7-Pc-emg" secondAttribute="leading" constant="45" id="bSQ-tJ-lGK"/>

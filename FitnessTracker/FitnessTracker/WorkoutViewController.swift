@@ -12,13 +12,20 @@ class WorkoutViewController: UIViewController {
 
     @IBOutlet weak var workoutDuration: UITextField!
     @IBOutlet weak var workoutCategory: UITextField!
+    
+    var currentWorkout: Workout?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        workoutDuration.delegate = self as! UITextFieldDelegate
-//        workoutCategory.delegate = self as! UITextFieldDelegate
-
-        // Do any additional setup after loading the view.
+//        workoutDuration.delegate = self
+//        workoutCategory.delegate = self
+        workoutCategory.text = currentWorkout?.category
+        if let duration = currentWorkout?.duration {
+            workoutDuration.text = "\(duration)"
+        } else {
+            workoutDuration.text = ""
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +44,18 @@ class WorkoutViewController: UIViewController {
         let category = workoutCategory.text
         let date = Date()
         
-        if let workout = Workout(category: category, date: date, duration: duration) {
+        var workout: Workout?
+        
+        if let currentWorkout = currentWorkout {
+            currentWorkout.category = category
+            currentWorkout.duration = duration
+            
+            workout = currentWorkout
+        } else {
+            workout = Workout(category: category, date: date, duration: duration)
+        }
+        
+        if let workout = workout {
             do {
                 let managedContext = workout.managedObjectContext
                 
